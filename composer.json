@@ -1,0 +1,10 @@
+{
+    "require": {
+        "j4mie/idiorm": "v1.5.1",
+		"slim/slim": "2.*",
+		"mustache/mustache": "2.6.1",
+		"robmorgan/phinx": "*",
+		"phpunit/phpunit": "3.7.*",
+		"guzzlehttp/guzzle": "5.0.*"
+    }
+}
