@@ -1,0 +1,13 @@
+{
+  "name": "fantasy_football",
+  "version": "0.0.1",
+  "description": "A web app that gives football stats and provides an optimization for player selection",
+  "dependencies": {
+    "bcrypt": "^0.8.2",
+    "body-parser": "^1.12.3",
+    "express": "4.11.2",
+    "jwt-simple": "^0.3.0",
+    "mongoose": "^4.0.2",
+    "socket.io": "1.3.4"
+  }
+}
