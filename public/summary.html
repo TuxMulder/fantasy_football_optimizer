@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/slider.css">
 	</head>
 	<body ng-app='app'>
 		<div class='container'>
@@ -19,31 +20,44 @@
 				</div>
 			</div>
 			<!--add hidden gem here-->
+			<div class='row' style='padding-top:40px'>
+				<div ng-controller='GemsCtrl as gems' class='col-md-5'>
+					<div class='panel panel-primary'>
+						<div class='panel-heading'>
+							<span>Hidden Gems</span>
+						</div>
+						<div class='panel-body'>
+							<form ng-submit name='gemForm'>
+								<div class='form-group'>
+									<label class='control-label' for='position'>Position</label>
+									<input id='position' class='form-control'>
+								</div>
+								<div class='form-group'>
+									<label class='control-label' for='percentageSel'>Selected By Percentage</label>
+									<input id='percentageSel' class='form-control'>
+								</div>
+									<label class='control-label' for='pointsPerf'>Points Performance</label>
+									<!--<input id='pointsPerf' class='form-control'>-->
+									<slider on-stop-slide="executeMe();" ng-model="gems.sliders.sliderValue" min="{{gems.testOptions.min}}" step="{{gems.testOptions.step}}" max="{{gems.testOptions.max}}"></slider>
+         								{{gems.myFormater(gems.sliderValue)}}
+								<div class='form-group'>
+								</div>
+							</form>
 
-			<div ng-controller='GemsCtrl as gems' class='col-md-5'>
-				<div class='panel panel-primary'>
-					<div class='panel-heading'>
-						<span>Hidden Gems</span>
-					</div>
-					<div class='panel-body'>
-						<form ng-submit name='gemForm'>
-							<div class='form-group'>
-								<label class='control-label' for='position'>Position</label>
-								<input id='position' class='form-control'>
-							</div>
-							<div class='form-group'>
-								<label class='control-label' for='percentageSel'></label>
-								<input id='percentageSel' class='form-control'>
-							</div>
-								<label class='control-label' for='pointsPerf'></label>
-								<input id='pointsPerf' class='form-control'>
-							<div class='form-group'>
-							</div>
-						</form>
-
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<script src="components/angularjs/angular.js"></script>
+		<script src="components/angularjs-scroll-glue/src/scrollglue.js"></script>
+		<script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<script src="components/lodash/dist/lodash.js"></script>
+		<script src="components/angular-route/angular-route.js"></script>
+		<script src="components/angular-bootstrap-slider/slider.js"></script>
+		<script src="js/footballApp.js"></script>
+		<script src="js/HiddenGems.js"></script>	
+
 	</body>
 </html>
