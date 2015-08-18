@@ -1,6 +1,6 @@
 <?php
 
-class DataUpdater {
+class PlayerUpdater {
 	private $playerDb;
 	private $fileOperator;
 
