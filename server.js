@@ -9,9 +9,38 @@ app.use('/components', express.static(__dirname + '/components'));
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/css', express.static(__dirname + '/css'));
 
+var players = require('./models/Player');
+var pointsAgainst = require('./models/PointsAgainstTeam');
+var posPoints = require('./models/PositionPoints');
+
+app.get('/PointsAgainst', function (req, res) {
+	pointsAgainst.find(function (err, against) {
+		if(err){
+			console.log(err);
+			return next(err);
+		}
+		if(!against){
+			return res.status(403);
+		}
+		res.status(200).json(against);
+	});
+});
+
+app.get('/gems', function (req, res) {
+	players.findOne({type_name: "Midfielder"})
+	.exec(function (err, p) {
+		if(err) {
+			console.log(err);
+			return next(err);
+		}
+		if(!p)
+		return res.status(200).json(p);
+	});
+});
 
 
-app.get('/test', function (req, res) { 
+
+app.get('/test', function (req, res) {
 	//res.sendFile(__dirname + '/test.html');
 	res.sendFile(__dirname + '/public/test.html');
 });
