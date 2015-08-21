@@ -3,7 +3,8 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/slider.css">
+		<link rel="stylesheet" type="text/css" href="components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css">
+	
 	</head>
 	<body ng-app='app'>
 		<div class='container'>
@@ -36,11 +37,13 @@
 									<label class='control-label' for='percentageSel'>Selected By Percentage</label>
 									<input id='percentageSel' class='form-control'>
 								</div>
-									<label class='control-label' for='pointsPerf'>Points Performance</label>
-									<!--<input id='pointsPerf' class='form-control'>-->
-									<slider on-stop-slide="executeMe();" ng-model="gems.sliders.sliderValue" min="{{gems.testOptions.min}}" step="{{gems.testOptions.step}}" max="{{gems.testOptions.max}}"></slider>
-         								{{gems.myFormater(gems.sliderValue)}}
 								<div class='form-group'>
+									<!--<label class='control-label' for='pointsPerf'>Points Performance</label>-->
+									<!--<input id='pointsPerf' class='form-control'>-->
+									<span slider ng-model="gems.value" min="gems.testOptions.min" max="gems.testOptions.max"
+									on-stop-slide="gems.stopped"></span>
+									{{gems.value}}
+
 								</div>
 							</form>
 
@@ -50,14 +53,19 @@
 			</div>
 		</div>
 
+		<script src="components/jquery/dist/jquery.js"></script>
 		<script src="components/angularjs/angular.js"></script>
+		<script src="components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="components/seiyria-bootstrap-slider/js/bootstrap-slider.js"></script>
 		<script src="components/angularjs-scroll-glue/src/scrollglue.js"></script>
 		<script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 		<script src="components/lodash/dist/lodash.js"></script>
 		<script src="components/angular-route/angular-route.js"></script>
 		<script src="components/angular-bootstrap-slider/slider.js"></script>
+
 		<script src="js/footballApp.js"></script>
-		<script src="js/HiddenGems.js"></script>	
+		<script src="js/TeamSummary.js"></script>
+		<script src="js/HiddenGems.js"></script>
 
 	</body>
 </html>

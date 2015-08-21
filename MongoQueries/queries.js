@@ -43,11 +43,12 @@ db.players.mapReduce(
 	}	
 )
 //find hidden gem players for a given postion. Hidden gem is player who has low select, but scores > average points.
-db.players.find({
+db.players.find({ $query: {
 	type_name: "Midfielder",
 	total_points: {$gt: 5.8},
-	selected_by_percent: {$lt: 10}
-}, {web_name:1});
+	selected_by_percent: {$lt: 3}},
+	$orderby: {total_points: -1}
+}, {web_name:1, selected_by_percent:1, total_points:1, _id:0, team_name:1});
 
 //query to convert selected_by_percent from a string to a float
 db.players.find().forEach(function(x) {

@@ -12,7 +12,8 @@ app.use('/css', express.static(__dirname + '/css'));
 
 
 app.get('/test', function (req, res) { 
-	res.sendFile(__dirname + '/test.html')
+	//res.sendFile(__dirname + '/test.html');
+	res.sendFile(__dirname + '/public/test.html');
 });
 
 app.get('/', function (req, res){
