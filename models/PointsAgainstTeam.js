@@ -5,7 +5,7 @@ var pointsAgainst = db.Schema({
 		value: Number
 	}, 
 	{
-		collection: 'against'
+		collection: 'points_against'
 	});
 
-module.exports = db.model('against', pointsAgainst);
+module.exports = db.model('points_against', pointsAgainst);

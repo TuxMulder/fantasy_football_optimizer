@@ -38,7 +38,7 @@
 	}
 
 	function Stopped () {
-		alert('stopped');
+		//alert('stopped');
 	}
 
 	/*function Formater(value) {

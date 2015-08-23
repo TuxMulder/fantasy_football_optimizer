@@ -23,19 +23,27 @@ app.get('/PointsAgainst', function (req, res) {
 			return res.status(403);
 		}
 		res.status(200).json(against);
-	});
+	}).sort({value: -1});
 });
 
 app.get('/gems', function (req, res) {
-	players.findOne({type_name: "Midfielder"})
-	.exec(function (err, p) {
+	players.find(
+		{
+			type_name: req.query.position, 
+			total_points: { $gt: req.query.points },
+			selected_by_percent: { $lt: req.query.select}
+		},
+		'web_name total_points selected_by_percent',
+		function (err, player) {
 		if(err) {
 			console.log(err);
 			return next(err);
 		}
-		if(!p)
-		return res.status(200).json(p);
-	});
+		if(!player) {
+			return res.status(403);
+		}
+		res.status(200).json(player);
+	}).sort({ total_points: -1 }).limit(5);
 });
 
 
