@@ -4,42 +4,33 @@
 		.module('app')
 		.controller('GemsCtrl', HiddenGemsController);
 
-	function HiddenGemsController() {
+	function HiddenGemsController(SliderFactory) {
 		var vm = this;
-		vm.testOptions = {
-            min: 0,
-            max: 100,
-            step: 10,
-            precision: 2,
-            orientation: 'horizontal',  // vertical
-            handle: 'round', //'square', 'triangle' or 'custom'
-            tooltip: 'show', //'hide','always'
-            tooltipseparator: ':',
-            tooltipsplit: false,
-            enabled: true,
-            naturalarrowkeys: false,
-            range: false,
-            ngDisabled: false,
-            reversed: false
-    	};
-
-    	vm.range = true;
-
-        vm.model = 0
-
-        vm.value = vm.testOptions.min + vm.testOptions.step;
             
+        vm.createSlider = function ( min, max, step) {
+            alert('hello');
+            var tempSlider;
+            SliderFactory.createByOptions(min, max, step, function (slider){
+                tempSlider = slider;
+            });
+            return tempSlider;
+        }
 
-        vm.prefix = 'Current value: ';
-        vm.suffix = '%';
+        //vm.prefix = 'Current value: ';
+        //vm.suffix = '%';
 
-        vm.stopped = Stopped();
+        //vm.stopped = Stopped();
+		vm.pointsSlider = vm.createSlider(, 0, 100, 5);
 
-	}
+        vm.pointsModel = 0;
+        vm.pointsValue = vm.pointsSlider.min + vm.pointsSlider.step;
+    }
 
-	function Stopped () {
-		//alert('stopped');
-	}
+	
+
+
+
+
 
 	/*function Formater(value) {
 		return value + "%";

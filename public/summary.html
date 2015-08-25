@@ -40,9 +40,9 @@
 								<div class='form-group'>
 									<!--<label class='control-label' for='pointsPerf'>Points Performance</label>-->
 									<!--<input id='pointsPerf' class='form-control'>-->
-									<span slider ng-model="gems.value" min="gems.testOptions.min" max="gems.testOptions.max"
-									on-stop-slide="gems.stopped"></span>
-									{{gems.value}}
+									<span slider ng-model="gems.pointsValue" min="gems.pointsSlider.min" max="gems.pointsSlider.max"></span>
+									<!--on-stop-slide="gems.stopped"-->
+									{{gems.pointsValue}}
 
 								</div>
 							</form>
@@ -65,6 +65,7 @@
 
 		<script src="js/footballApp.js"></script>
 		<script src="js/TeamSummary.js"></script>
+		<script src="js/SliderFactory.js"></script>
 		<script src="js/HiddenGems.js"></script>
 
 	</body>
